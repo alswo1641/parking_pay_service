@@ -223,7 +223,6 @@ class _NaverMapPageState extends State<NaverMapPage> {
                 mapType: NMapType.navi,
                 nightModeEnable: nightMode,
                 activeLayerGroups: [
-                  NLayerGroup.building,
                   NLayerGroup.transit,
                 ],
               ),
