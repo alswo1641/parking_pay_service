@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:parking_pay_service/common/component/widgets/loading_widget.dart';
 import 'package:parking_pay_service/common/layout/app_text.dart';
 import 'package:parking_pay_service/common/view/find_near_page.dart';
 import 'package:parking_pay_service/common/view/map_page.dart';
+import 'package:parking_pay_service/common/view/map_select_page.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -31,13 +33,24 @@ class MainPage extends StatelessWidget {
                   padding: const EdgeInsets.all(18),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NaverMapPage(),
-                          settings: RouteSettings(arguments: Color(0xFF149D9B)),
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  LoadingScreen(),
+                          transitionDuration: Duration(seconds: 0),
                         ),
                       );
+                      Future.delayed(Duration(seconds: 2), () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                NaverMapPage(selectedMapType: MapType.NaverMap),
+                            settings:
+                                RouteSettings(arguments: Color(0xFF149D9B)),
+                          ),
+                        );
+                      });
                     },
                     child: Container(
                       height: 300,
@@ -75,12 +88,21 @@ class MainPage extends StatelessWidget {
                   padding: EdgeInsets.all(18),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FindNearPage(),
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  LoadingScreen(),
+                          transitionDuration: Duration(seconds: 0),
                         ),
                       );
+                      Future.delayed(Duration(seconds: 2), () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => FindNearPage(),
+                          ),
+                        );
+                      });
                     },
                     child: Container(
                       height: 300,

@@ -27,6 +27,11 @@ dependencies:
   flutter_naver_map: ^1.1.1 #네이버맵
   geolocator: ^10.1.0 #현재위치
   url_launcher: ^6.2.3 #앱열기
+  xml: ^6.5.0
+  json_annotation: ^4.8.1
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

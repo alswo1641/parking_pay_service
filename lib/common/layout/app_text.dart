@@ -366,6 +366,11 @@ class AppTextTheme {
       fontWeight: FontWeight.w400,
       letterSpacing: 0.03,
       color: AppColor.leftGrey);
+  static const businessDiaryStepSelected15m = TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
+      letterSpacing: 0.035,
+      color: Color(0xFF10807E));
   static const businessDiaryStepSelected18b = TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w800,
